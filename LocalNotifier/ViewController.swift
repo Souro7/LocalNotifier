@@ -26,14 +26,22 @@ class ViewController: UIViewController {
 
     @IBAction func sendNotification(_ sender: Any) {
         
-            let content = UNMutableNotificationContent()
-            content.title = "Notification Title"
-            content.body = " Notification Body"
-            
+//        First Notification
+        let content = UNMutableNotificationContent()
+        content.title = "Notification Title1"
+        content.body = " Notification Body1"
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
             let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
+        
+//        Second notification
+        let content1 = UNMutableNotificationContent()
+        content1.title = "Notification Title2"
+        content1.body = " Notification Body2"
+            let trigger1 = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
+            let request1 = UNNotificationRequest(identifier: "notification.id.02", content: content1, trigger: trigger1)
             
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            UNUserNotificationCenter.current().add(request1, withCompletionHandler: nil)
     }
     
 }
